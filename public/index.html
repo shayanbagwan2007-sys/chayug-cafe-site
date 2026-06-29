@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cha Yug (चायुग) - An Era of Tea Bistro | Jaipur</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slateTeal: '#0D2229',
+                        warmOchre: '#C48F56',
+                        bohoCream: '#FAF7F2',
+                        charcoal: '#2D2D2D',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .boho-border {
+            border-color: rgba(196, 143, 86, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-bohoCream text-charcoal font-sans antialiased">
+
+    <!-- Header / Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-slateTeal text-white z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand Name -->
+                <div class="flex items-center space-x-3">
+                    <img src="/images/logo.jpg" alt="Cha Yug Logo" class="w-12 h-12 rounded-full object-cover border border-warmOchre">
+                    <div>
+                        <span class="font-serif font-bold text-xl tracking-wider block">CHA YUG</span>
+                        <span class="text-[10px] text-warmOchre tracking-widest uppercase block -mt-1">An Era of Tea Bistro</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu Navigation -->
+                <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                    <a href="#home" class="hover:text-warmOchre transition">Home</a>
+                    <a href="#about" class="hover:text-warmOchre transition">Our Vibe</a>
+                    <a href="#menu" class="hover:text-warmOchre transition">Interactive Menu</a>
+                    <a href="#reserve" class="hover:text-warmOchre transition">Reservations</a>
+                    <a href="#contact" class="hover:text-warmOchre transition">Find Us</a>
+                </div>
+
+                <!-- Deliver Now / Call to Action -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="https://www.swiggy.com" target="_blank" class="bg-warmOchre hover:bg-opacity-90 text-white px-5 py-2.5 rounded text-xs uppercase tracking-wider font-semibold transition">
+                        Order on Swiggy
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-warmOchre focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slateTeal border-t border-gray-800 px-4 pt-2 pb-4 space-y-1">
+            <a href="#home" class="block py-2 px-3 text-white hover:bg-warmOchre rounded transition">Home</a>
+            <a href="#about" class="block py-2 px-3 text-white hover:bg-warmOchre rounded transition">Our Vibe</a>
+            <a href="#menu" class="block py-2 px-3 text-white hover:bg-warmOchre rounded transition">Interactive Menu</a>
+            <a href="#reserve" class="block py-2 px-3 text-white hover:bg-warmOchre rounded transition">Reservations</a>
+            <a href="#contact" class="block py-2 px-3 text-white hover:bg-warmOchre rounded transition">Find Us</a>
+            <div class="pt-4">
+                <a href="https://www.swiggy.com" target="_blank" class="block text-center bg-warmOchre text-white py-2.5 rounded text-sm uppercase font-semibold">
+                    Order on Swiggy
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 min-h-screen flex items-center bg-slateTeal text-white relative overflow-hidden">
+        <!-- Abstract Botanical Boho Vector Overlay in background -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none flex justify-end items-end">
+            <svg class="w-1/2 h-1/2" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M50 0 C 60 20, 80 40, 100 50 C 80 60, 60 80, 50 100 C 40 80, 20 60, 0 50 C 20 40, 40 20, 50 0 Z" />
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Narrative -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center space-x-2 border border-warmOchre/40 bg-warmOchre/10 px-3 py-1.5 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-warmOchre animate-ping"></span>
+                    <span class="text-xs text-warmOchre uppercase tracking-widest font-semibold">Open Daily till 11:00 PM</span>
+                </div>
+                <h1 class="font-serif text-4xl sm:text-6xl font-bold leading-tight">
+                    Welcome to <br>
+                    <span class="text-warmOchre font-normal italic">Cha Yug</span> (चायुग)
+                </h1>
+                <p class="text-lg text-gray-300 max-w-xl font-light leading-relaxed">
+                    "Chayug is more than just a café—it’s an era of unforgettable tea, crafted better than anywhere else. Alongside our specialty coffee and a wide range of delicious food, we create moments worth savoring."
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#menu" class="bg-warmOchre hover:bg-opacity-90 text-white px-8 py-3.5 rounded font-medium transition shadow-lg shadow-warmOchre/10">
+                        Explore Our Menu
+                    </a>
+                    <a href="#reserve" class="border border-white/30 hover:border-warmOchre text-white px-8 py-3.5 rounded font-medium transition">
+                        Reserve a Table
+                    </a>
+                </div>
+                <!-- Mini Stats / Badges -->
+                <div class="pt-8 grid grid-cols-3 gap-4 border-t border-white/10 max-w-lg">
+                    <div>
+                        <span class="block text-2xl font-serif text-warmOchre font-bold">4.6/5</span>
+                        <span class="text-xs text-gray-400">90+ Swiggy Reviews</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-serif text-warmOchre font-bold">₹200-400</span>
+                        <span class="text-xs text-gray-400">Avg. Cost Per Person</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-serif text-warmOchre font-bold">100% Veg</span>
+                        <span class="text-xs text-gray-400">Fresh Ingredients</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Graphic (Inspired by Boho interior wall murals) -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-80 h-[450px] bg-slateTeal rounded-3xl border-[12px] border-warmOchre/20 overflow-hidden shadow-2xl">
+                    <img src="/images/interior.jpg" alt="Cha Yug Interior" class="w-full h-full object-cover opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slateTeal to-transparent p-6 flex flex-col justify-end text-white">
+                        <p class="font-serif italic font-bold text-warmOchre text-lg">Brew & Bliss</p>
+                        <p class="text-xs uppercase tracking-widest text-white font-bold">The Era of Tea Bistro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Aesthetic Vibe & Review Highlights -->
+    <section id="about" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <!-- Details & Review Cards -->
+            <div class="lg:col-span-6 space-y-8">
+                <div>
+                    <span class="text-sm text-warmOchre uppercase tracking-widest font-bold block mb-2">Our Aesthetic & Vibe</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slateTeal">Designed for Warm Conversations</h2>
+                </div>
+                <p class="text-gray-600 leading-relaxed font-light">
+                    Step inside a bohemian sanctuary carefully curated with soft alabaster walls, cozy wicker light fixtures hanging through draped canvas ceilings, and custom-sketched modern line art murals like our signature "Brew & Bliss" installation. In the center of the room stands a decorative steel-sculpted pillar designed as an illuminated tree, casting warm light across smooth, heavy wooden seating perfect for sharing.
+                </p>
+
+                <!-- Reviews Panel -->
+                <div class="space-y-4">
+                    <h3 class="font-serif text-xl font-bold text-slateTeal">Loved by Our Community</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-5 rounded-xl border border-warmOchre/20 shadow-sm">
+                            <div class="flex items-center space-x-1 text-amber-500 text-xs mb-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-xs text-gray-600 italic">"Highly recommend to anyone looking for quality, comfort, and consistency."</p>
+                            <span class="block mt-3 text-[10px] font-bold uppercase tracking-wider text-gray-400">— SAHIL REWANI VLOGS</span>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-warmOchre/20 shadow-sm">
+                            <div class="flex items-center space-x-1 text-amber-500 text-xs mb-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-xs text-gray-600 italic">"A fantastic place to hangout with friends & family."</p>
+                            <span class="block mt-3 text-[10px] font-bold uppercase tracking-wider text-gray-400">— SHREEYANSH BOHRA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Virtual Ambiance Showcase -->
+            <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                <div class="space-y-4">
+                    <!-- Photo Card 1: Garlic Bread Mockup/Details -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-warmOchre/20 p-4 shadow-sm">
+                        <div class="h-40 bg-warmOchre/10 rounded-xl overflow-hidden relative">
+                            <img src="/images/garlic.jpg" alt="Cheesy Garlic Bread" class="w-full h-full object-cover">
+                            <span class="absolute bottom-2 left-2 bg-slateTeal text-white text-[9px] px-2 py-0.5 rounded font-semibold uppercase">Menu Favourite</span>
+                        </div>
+                        <h4 class="font-serif font-semibold text-sm text-slateTeal mt-3">Classic Garlic Bread</h4>
+                        <p class="text-xs text-gray-500 mt-1">Four delicious thick baguette slices baked crisp with corn, melted cheese and chili flakes.</p>
+                    </div>
+                    <!-- Photo Card 2: Wicker Elegance Photo Card -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-warmOchre/20 p-4 shadow-sm">
+                        <div class="h-40 bg-warmOchre/10 rounded-xl overflow-hidden relative">
+                            <img src="/images/wicker.jpg" alt="Wicker Ceiling Lights" class="w-full h-full object-cover">
+                            <span class="absolute bottom-2 left-2 bg-slateTeal text-white text-[9px] px-2 py-0.5 rounded font-semibold uppercase">Interior Vibe</span>
+                        </div>
+                        <h4 class="font-serif font-semibold text-sm text-slateTeal mt-3">Wicker Elegance</h4>
+                        <p class="text-xs text-gray-500 mt-1">Draped canvas ceilings and woven basket lighting create an unforgettable bohemian warmth.</p>
+                    </div>
+                </div>
+                <div class="space-y-4 pt-8">
+                    <!-- Photo Card 3: Pasta & Pizza Plate Mockup -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-warmOchre/20 p-4 shadow-sm">
+                        <div class="h-40 bg-warmOchre/10 rounded-xl overflow-hidden relative">
+                            <img src="/images/meal.jpg" alt="Pasta and Pizza Meal" class="w-full h-full object-cover">
+                            <span class="absolute bottom-2 left-2 bg-slateTeal text-white text-[9px] px-2 py-0.5 rounded font-semibold uppercase">Signature pairing</span>
+                        </div>
+                        <h4 class="font-serif font-semibold text-sm text-slateTeal mt-3">White Pasta & Pizza</h4>
+                        <p class="text-xs text-gray-500 mt-1">Sautéed penne drenched in white sauce, alongside thin crust pizza with olives and bell peppers.</p>
+                    </div>
+                    <!-- Photo Card 4: The Tree Pillar Photo Card -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-warmOchre/20 p-4 shadow-sm">
+                        <div class="h-40 bg-warmOchre/10 rounded-xl overflow-hidden relative">
+                            <img src="/images/pillar.jpg" alt="The Tree Pillar" class="w-full h-full object-cover">
+                            <span class="absolute bottom-2 left-2 bg-slateTeal text-white text-[9px] px-2 py-0.5 rounded font-semibold uppercase">Design Highlight</span>
+                        </div>
+                        <h4 class="font-serif font-semibold text-sm text-slateTeal mt-3">The Tree Pillar</h4>
+                        <p class="text-xs text-gray-500 mt-1">A centered metal art piece radiating warm bulb lighting across premium high stool seating areas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Menu Section -->
+    <section id="menu" class="bg-slateTeal text-white py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-4 max-w-2xl mx-auto mb-16">
+                <span class="text-sm text-warmOchre uppercase tracking-widest font-bold">Our Freshly Crafted Menu</span>
+                <h2 class="font-serif text-4xl font-bold">Explore Our All-Veg Delicacies</h2>
+                <p class="text-gray-300 font-light text-sm">
+                    Filter by our categories and build your perfect culinary pairing. Select a tab below to explore.
+                </p>
+                <!-- Category Tabs Menu -->
+                <div id="category-tabs" class="flex flex-wrap justify-center gap-2 pt-6">
+                    <!-- Tabs are loaded dynamically via Javascript -->
+                </div>
+            </div>
+
+            <!-- Menu Grid Container -->
+            <div id="menu-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Menu items are injected dynamically from Javascript database -->
+                <div class="col-span-full text-center py-12">
+                    <i class="fa-solid fa-spinner animate-spin text-3xl text-warmOchre"></i>
+                    <p class="text-gray-400 mt-2 text-sm">Brewing menu items...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table Reservations / Swiggy Integrations -->
+    <section id="reserve" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl border border-warmOchre/20 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+            <!-- Left Info Panel -->
+            <div class="lg:col-span-5 bg-slateTeal text-white p-8 sm:p-12 flex flex-col justify-between space-y-8">
+                <div>
+                    <span class="text-sm text-warmOchre uppercase tracking-widest font-bold block mb-2">Save Your Spot</span>
+                    <h2 class="font-serif text-3xl font-bold mb-4">Reservations & Delivery</h2>
+                    <p class="text-sm text-gray-300 leading-relaxed font-light">
+                        Skip the wait and reserve your table instantly, or enjoy our bistro food delivered hot to your doorstep via our online delivery partners.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <a href="https://www.eazydiner.com" target="_blank" class="flex items-center justify-between bg-white/5 border border-white/10 hover:border-warmOchre p-4 rounded-xl transition group">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-10 h-10 rounded-full bg-warmOchre/10 flex items-center justify-center text-warmOchre text-sm">
+                                <i class="fa-solid fa-utensils"></i>
+                            </span>
+                            <div>
+                                <span class="font-semibold block text-sm">EazyDiner reservation</span>
+                                <span class="text-xs text-gray-400">4.0 / 5 Rating</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-warmOchre"></i>
+                    </a>
+
+                    <a href="https://www.swiggy.com" target="_blank" class="flex items-center justify-between bg-white/5 border border-white/10 hover:border-warmOchre p-4 rounded-xl transition group">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-10 h-10 rounded-full bg-warmOchre/10 flex items-center justify-center text-warmOchre text-sm">
+                                <i class="fa-solid fa-motorcycle"></i>
+                            </span>
+                            <div>
+                                <span class="font-semibold block text-sm">Order on Swiggy</span>
+                                <span class="text-xs text-gray-400">4.6 / 5 Rating (90+ reviews)</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-warmOchre"></i>
+                    </a>
+                </div>
+
+                <div class="border-t border-white/10 pt-6">
+                    <p class="text-xs text-gray-400 italic">"An era of unforgettable tea, crafted better than anywhere else."</p>
+                </div>
+            </div>
+
+            <!-- Right Interactive Form Panel -->
+            <div class="lg:col-span-7 p-8 sm:p-12">
+                <h3 class="font-serif text-2xl font-bold text-slateTeal mb-6">Send Booking Request</h3>
+                <form id="reservation-form" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-gray-500 mb-2">Your Name *</label>
+                            <input type="text" id="reserve_name" required class="w-full bg-bohoCream border border-gray-200 focus:border-warmOchre focus:ring-1 focus:ring-warmOchre rounded-lg px-4 py-3 text-sm transition outline-none" placeholder="Enter full name">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-gray-500 mb-2">Phone Number *</label>
+                            <input type="tel" id="reserve_phone" required class="w-full bg-bohoCream border border-gray-200 focus:border-warmOchre focus:ring-1 focus:ring-warmOchre rounded-lg px-4 py-3 text-sm transition outline-none" placeholder="10-digit mobile number">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-gray-500 mb-2">No. of Guests *</label>
+                            <select id="reserve_guests" required class="w-full bg-bohoCream border border-gray-200 focus:border-warmOchre focus:ring-1 focus:ring-warmOchre rounded-lg px-4 py-3 text-sm transition outline-none">
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5+ People</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-gray-500 mb-2">Date *</label>
+                            <input type="date" id="reserve_date" required class="w-full bg-bohoCream border border-gray-200 focus:border-warmOchre focus:ring-1 focus:ring-warmOchre rounded-lg px-4 py-3 text-sm transition outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-gray-500 mb-2">Preferred Time *</label>
+                            <input type="time" id="reserve_time" required class="w-full bg-bohoCream border border-gray-200 focus:border-warmOchre focus:ring-1 focus:ring-warmOchre rounded-lg px-4 py-3 text-sm transition outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider font-bold text-gray-500 mb-2">Additional Note / Requests (Optional)</label>
+                        <textarea id="reserve_notes" rows="3" class="w-full bg-bohoCream border border-gray-200 focus:border-warmOchre focus:ring-1 focus:ring-warmOchre rounded-lg px-4 py-3 text-sm transition outline-none resize-none" placeholder="e.g., birthday celebration, outdoor preferred, extra seating..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-slateTeal hover:bg-opacity-95 text-white py-3.5 rounded-lg text-sm uppercase tracking-wider font-semibold transition shadow-md shadow-slateTeal/10">
+                        Submit Table Request
+                    </button>
+                    <p id="form-feedback" class="hidden text-xs text-center mt-3 font-medium"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map, Address, Hours Contact Section -->
+    <section id="contact" class="bg-bohoCream py-16 border-t border-warmOchre/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Store Metadata -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full border border-warmOchre flex items-center justify-center">
+                        <span class="text-warmOchre font-bold font-serif text-sm">CY</span>
+                    </div>
+                    <span class="font-serif font-bold text-xl text-slateTeal tracking-wider uppercase">Cha Yug</span>
+                </div>
+                
+                <p class="text-xs text-gray-500 max-w-sm">
+                    Located in the heart of Vaishali Nagar near Amrapali Circle. Bring your friends and family for premium teas, thick sandwiches, hot Maggi and aesthetic coffee moments.
+                </p>
+
+                <!-- Location Details -->
+                <div class="space-y-4 pt-4 text-sm">
+                    <div class="flex items-start space-x-3">
+                        <i class="fa-solid fa-location-dot text-warmOchre mt-1"></i>
+                        <div>
+                            <span class="font-bold block text-slateTeal">Our Address</span>
+                            <span class="text-gray-600">E-869, Amrapali Circle, Vaishali Nagar, Jaipur, Rajasthan 302021</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <i class="fa-solid fa-clock text-warmOchre mt-1"></i>
+                        <div>
+                            <span class="font-bold block text-slateTeal">Opening Hours</span>
+                            <span class="text-gray-600">Mon - Sun: 11:00 AM - 11:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 pt-4">
+                    <a href="https://maps.google.com" target="_blank" class="inline-flex items-center space-x-2 bg-slateTeal text-white px-4 py-2.5 rounded text-xs uppercase font-semibold transition hover:bg-opacity-95">
+                        <i class="fa-solid fa-diamond-turn-right"></i>
+                        <span>Get Directions (20 min drive)</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Virtual Map / Spatial visualizer -->
+            <div class="lg:col-span-7 bg-white p-4 rounded-3xl border border-warmOchre/20 shadow-md">
+                <div class="relative w-full h-64 bg-slateTeal/5 rounded-2xl flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-cover bg-center filter grayscale opacity-20" style="background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="relative z-10 text-center space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-slateTeal text-warmOchre flex items-center justify-center mx-auto shadow-lg border border-warmOchre">
+                            <i class="fa-solid fa-map-pin text-xl"></i>
+                        </div>
+                        <h4 class="font-serif font-bold text-slateTeal text-base">Amrapali Circle, Jaipur</h4>
+                        <p class="text-xs text-gray-500 px-8">Find us easily directly opposite the main avenue, right inside Vaishali Nagar's popular café row.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slateTeal text-white py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-center sm:text-left">
+                <p class="font-serif font-bold text-lg tracking-wider">CHA YUG</p>
+                <p class="text-[10px] text-warmOchre uppercase tracking-widest mt-1">An Era of Tea Bistro</p>
+            </div>
+            <p class="text-xs text-gray-400">
+                &copy; <span id="year"></span> Cha Yug Bistro. All rights reserved.
+            </p>
+            <div class="flex space-x-4 text-sm">
+                <a href="#" class="text-gray-400 hover:text-warmOchre transition"><i class="fa-brands fa-instagram text-lg"></i></a>
+                <a href="#" class="text-gray-400 hover:text-warmOchre transition"><i class="fa-brands fa-facebook text-lg"></i></a>
+                <a href="#" class="text-gray-400 hover:text-warmOchre transition"><i class="fa-solid fa-envelope text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JS Functionality -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Detailed Fallback Menu Data containing ALL items from the images
+        const localMenuFallback = [
+            {
+                category: "All Time Favourites",
+                items: [
+                    { name: "Bun Maska", price: "₹70", desc: "Classic soft bun slathered with fresh butter" },
+                    { name: "Butter Toast", price: "₹108", desc: "Crispy toasted bread with rich butter" },
+                    { name: "Poha", price: "₹126", desc: "Light and fluffy seasoned flattened rice" },
+                    { name: "Samosa (2 pieces)", price: "₹126", desc: "Crispy pastry with spiced potato filling" },
+                    { name: "Bun Samosa", price: "₹90", desc: "Spiced samosa inside a soft buttered bun" },
+                    { name: "Corn Cheese Nuggets", price: "₹180", desc: "Golden nuggets filled with sweet corn and cheese" },
+                    { name: "Potato Wedges", price: "₹180", desc: "Seasoned crispy potato wedges" },
+                    { name: "Mumbai Vada Pav", price: "₹90", desc: "The authentic Mumbai street classic" },
+                    { name: "Schezwan Vada Pav", price: "₹110", desc: "Vada Pav served with spicy Schezwan kick" },
+                    { name: "Cheese Vada Pav", price: "₹125", desc: "Loaded with rich liquid cheese" },
+                    { name: "Upma", price: "₹126", desc: "Traditional savory semolina breakfast dish" }
+                ]
+            },
+            {
+                category: "Sandwiches, Subs & Wraps",
+                items: [
+                    { name: "Veggie Grilled Sandwich", price: "₹140", desc: "Assorted vegetables grilled in sandwich bread" },
+                    { name: "Paneer Makhni Sandwich", price: "₹160", desc: "Spiced paneer cubes in creamy makhni sauce" },
+                    { name: "Corn n Cheese Sandwich", price: "₹160", desc: "Sweet corn combined with melted mozzarella" },
+                    { name: "Signature Club Sandwich (Triple Layer)", price: "₹210", desc: "Three-layered ultimate loaded club sandwich. (Extra Cheese +₹25)" },
+                    { name: "Masala Mushroom Sandwich", price: "₹180", desc: "Deliciously sautéed spiced mushrooms" },
+                    { name: "Mushroom & Cheese Sandwich", price: "₹200", desc: "Sautéed mushrooms baked with layers of cheese" },
+                    { name: "Veggie Patty Subwich", price: "₹210", desc: "Multigrain sub loaded with a crispy veggie patty" },
+                    { name: "Paneer Tikka Subwich", price: "₹270", desc: "High protein paneer tikka chunks on multigrain bread. (Extra Cheese +₹20, Extra Loaded +₹25)" },
+                    { name: "Spicy Corn n Cheese Subwich", price: "₹240", desc: "Tangy sweet corn with melted cheese inside multigrain bread" },
+                    { name: "Tandoori Wrap", price: "₹170", desc: "Soft tortilla wrapped around smoky tandoori filling" },
+                    { name: "Paneer Wrap", price: "₹200", desc: "Classic wrap loaded with marinated paneer" },
+                    { name: "Fiesta Wrap", price: "₹230", desc: "Filled with red paprika, olives, and jalapenos" }
+                ]
+            },
+            {
+                category: "Maggi & Pasta",
+                items: [
+                    { name: "Everyday Maggi", price: "₹100", desc: "Simple and comforting instant noodles classic" },
+                    { name: "Veggie Maggi", price: "₹130", desc: "Classic noodles loaded with fresh chopped vegetables" },
+                    { name: "Corn n Cheese Fusion Maggi", price: "₹130", desc: "Satisfying twist of sweet corn and gooey cheese" },
+                    { name: "Tandoori Maggi", price: "₹140", desc: "Smoky tandoori masala-infused preparation" },
+                    { name: "Creamy Cheesy Maggi", price: "₹160", desc: "Rich, decadent, ultra-cheesy comfort bowl" },
+                    { name: "Tadka Maggi", price: "₹160", desc: "Instant noodles spiced up with an aromatic Indian tadka" },
+                    { name: "Classic Red Pasta", price: "₹210", desc: "Penne pasta in a tangy tomato marinara sauce" },
+                    { name: "Creamy White Pasta", price: "₹240", desc: "Penne pasta tossed in rich, seasoned white sauce" },
+                    { name: "Fusion Mix Sauce Pasta", price: "₹270", desc: "The delicious combination of red and white sauces" }
+                ]
+            },
+            {
+                category: "Burgers & Pizzas",
+                items: [
+                    { name: "Classic Veg Burger", price: "₹95", desc: "Crispy vegetable patty topped with lettuce and creamy spread" },
+                    { name: "Cheese Melt Burger", price: "₹130", desc: "Overflowing with warm, melted liquid cheese sauce. (Extra Cheese +₹20, Extra Patty +₹25)" },
+                    { name: "Mexicana Burger", price: "₹160", desc: "Spiced burger with Mexican sauces and jalapenos" },
+                    { name: "Paneer Royale Burger", price: "₹200", desc: "Premium burger with a crispy paneer slice and special toppings" },
+                    { name: "Classic Margherita Pizza", price: "₹215 / ₹255", desc: "Thin crust with aromatic marinara and bubbly mozzarella (Medium/Large)" },
+                    { name: "Farm Fresh Pizza", price: "₹290 / ₹340", desc: "Loaded with bell peppers, sweet corn, onions, and black olives (Medium/Large)" },
+                    { name: "Corn n Cheese Pizza", price: "₹250 / ₹300", desc: "A sweet and savory combo of golden corn and cheese (Medium/Large)" },
+                    { name: "Paneer Onion Pizza", price: "₹270 / ₹310", desc: "Marinated paneer and red onions over crisp crust (Medium/Large)" },
+                    { name: "Mexican Twist Pizza", price: "₹290 / ₹340", desc: "Spiced with bell peppers, jalapenos, and fiery seasonings (Medium/Large)" }
+                ]
+            },
+            {
+                category: "Garlic Bread & Sides",
+                items: [
+                    { name: "Cheese Garlic Bread", price: "₹160", desc: "Thick baguette slices baked crisp with garlic butter and cheese" },
+                    { name: "Classic Corn Garlic Bread", price: "₹180", desc: "Baked garlic bread slices loaded with sweet corn and cheese. (Extra Dip +₹20)" },
+                    { name: "Exotic Garlic Bread", price: "₹200", desc: "Topped with sliced olives, jalapenos, and premium cheese" },
+                    { name: "Classic Salted Fries", price: "₹140", desc: "Crispy golden potato fries lightly salted" },
+                    { name: "Peri Peri Fries", price: "₹160", desc: "Fries tossed in spicy and tangy peri peri seasoning" },
+                    { name: "Cheesy Fries", price: "₹200", desc: "Golden fries drizzled with hot cheese sauce" },
+                    { name: "Veg Momos (Steamed / Fried)", price: "₹130 / ₹160", desc: "Delectable vegetable-stuffed momos" },
+                    { name: "Veg Cheesy Momos", price: "₹180", desc: "Spiced vegetable momos baked with loaded cheese" }
+                ]
+            },
+            {
+                category: "Mocktails & Ice Teas",
+                items: [
+                    { name: "Classic Mint Mocktail", price: "₹160", desc: "Refreshing blend of fresh mint, lime, and soda" },
+                    { name: "Watermelon Breeze", price: "₹180", desc: "Sweet and crisp cooling watermelon cooler" },
+                    { name: "Raspberry Crush", price: "₹190", desc: "Sweet, tangy raspberry flavored fizzy drink" },
+                    { name: "Passion Fruit Mocktail", price: "₹190", desc: "Tropical passion fruit mocktail layered with mint" },
+                    { name: "Blueberry Bliss", price: "₹190", desc: "Decadent blue-themed refreshing mocktail" },
+                    { name: "Lemon Mint Ice Tea", price: "₹140", desc: "Chilled brewed black tea infused with lemon and mint" },
+                    { name: "Peach Ice Tea", price: "₹160", desc: "Brewed black tea infused with fragrant sweet peach" },
+                    { name: "Watermelon Ice Tea", price: "₹160", desc: "Chilled tea flavored with crisp, refreshing watermelon" }
+                ]
+            }
+        ];
+
+        let fullMenu = [];
+
+        async function initMenu() {
+            try {
+                const response = await fetch('/api/menu');
+                fullMenu = await response.json();
+                
+                // If backend does not provide full categories, use local fallback
+                if (!fullMenu || fullMenu.length < 5) {
+                    fullMenu = localMenuFallback;
+                }
+                
+                renderTabs(fullMenu);
+                renderMenuItems(fullMenu[0].category);
+            } catch (error) {
+                console.warn("Could not load the menu from API. Using direct local fallback.", error);
+                fullMenu = localMenuFallback;
+                renderTabs(fullMenu);
+                renderMenuItems(fullMenu[0].category);
+            }
+        }
+
+        function renderTabs(categories) {
+            const tabContainer = document.getElementById('category-tabs');
+            tabContainer.innerHTML = '';
+            
+            categories.forEach((cat, index) => {
+                const button = document.createElement('button');
+                button.textContent = cat.category;
+                button.className = `px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition ${index === 0 ? 'bg-warmOchre text-white' : 'bg-white/5 border border-white/10 hover:border-warmOchre text-gray-300'}`;
+                button.onclick = () => {
+                    Array.from(tabContainer.children).forEach(btn => {
+                        btn.className = "px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition bg-white/5 border border-white/10 hover:border-warmOchre text-gray-300";
+                    });
+                    button.className = "px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition bg-warmOchre text-white";
+                    renderMenuItems(cat.category);
+                };
+                tabContainer.appendChild(button);
+            });
+        }
+
+        function renderMenuItems(categoryName) {
+            const menuContainer = document.getElementById('menu-container');
+            menuContainer.innerHTML = '';
+
+            const selectedCategory = fullMenu.find(cat => cat.category === categoryName);
+            if (!selectedCategory) return;
+
+            selectedCategory.items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-warmOchre/40 transition group duration-300";
+                card.innerHTML = `
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start gap-4">
+                            <h3 class="font-serif font-semibold text-lg group-hover:text-warmOchre transition duration-300">${item.name}</h3>
+                            <span class="text-warmOchre font-bold font-serif whitespace-nowrap">${item.price}</span>
+                        </div>
+                        <p class="text-xs text-gray-400 leading-relaxed font-light">${item.desc}</p>
+                    </div>
+                    <div class="border-t border-white/5 mt-4 pt-3 flex items-center justify-between text-[10px] text-gray-500 uppercase tracking-widest">
+                        <span>Veg Standard</span>
+                        <i class="fa-solid fa-leaf text-green-500"></i>
+                    </div>
+                `;
+                menuContainer.appendChild(card);
+            });
+        }
+
+        // Reservation Form Submission handler
+        const reservationForm = document.getElementById('reservation-form');
+        const feedbackEl = document.getElementById('form-feedback');
+
+        reservationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const payload = {
+                name: document.getElementById('reserve_name').value,
+                phone: document.getElementById('reserve_phone').value,
+                guests: document.getElementById('reserve_guests').value,
+                date: document.getElementById('reserve_date').value,
+                time: document.getElementById('reserve_time').value,
+                notes: document.getElementById('reserve_notes').value
+            };
+
+            try {
+                feedbackEl.classList.remove('hidden', 'text-green-600', 'text-red-600');
+                feedbackEl.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Submitting request...';
+                
+                const response = await fetch('/api/reserve', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    feedbackEl.className = "text-xs text-center mt-3 font-semibold text-green-600";
+                    feedbackEl.textContent = data.message;
+                    reservationForm.reset();
+                } else {
+                    feedbackEl.className = "text-xs text-center mt-3 font-semibold text-red-600";
+                    feedbackEl.textContent = data.message;
+                }
+            } catch (error) {
+                console.error("Booking submission error:", error);
+                feedbackEl.className = "text-xs text-center mt-3 font-semibold text-red-600";
+                feedbackEl.textContent = "Error submitting request. Please try again later.";
+            }
+        });
+
+        // Initialize App
+        window.onload = initMenu;
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cha Yug (चायुग) - Admin Console</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slateTeal: '#0D2229',
+                        warmOchre: '#C48F56',
+                        bohoCream: '#FAF7F2',
+                        charcoal: '#2D2D2D',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-bohoCream min-h-screen font-sans antialiased text-charcoal">
+
+    <!-- LOGIN SCREEN -->
+    <div id="login-container" class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-white rounded-3xl border border-warmOchre/20 shadow-2xl p-8 max-w-md w-full space-y-6">
+            <div class="text-center space-y-2">
+                <div class="w-16 h-16 rounded-full border-2 border-warmOchre bg-slateTeal flex items-center justify-center mx-auto shadow">
+                    <span class="text-warmOchre font-bold text-xl">CY</span>
+                </div>
+                <h1 class="font-serif text-2xl font-bold text-slateTeal">Bistro Admin Login</h1>
+                <p class="text-xs text-gray-500">Access your active table and order listings</p>
+            </div>
+
+            <form id="login-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-bold text-gray-500 mb-2">Username</label>
+                    <input type="text" id="username" required class="w-full bg-bohoCream border border-gray-200 focus:border-warmOchre rounded-xl px-4 py-3 text-sm outline-none transition" placeholder="Enter admin username">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-bold text-gray-500 mb-2">Password</label>
+                    <input type="password" id="password" required class="w-full bg-bohoCream border border-gray-200 focus:border-warmOchre rounded-xl px-4 py-3 text-sm outline-none transition" placeholder="••••••••">
+                </div>
+                <button type="submit" class="w-full bg-slateTeal hover:bg-opacity-95 text-white py-3.5 rounded-xl text-sm font-semibold uppercase tracking-wider transition shadow-md shadow-slateTeal/10">
+                    Access Portal
+                </button>
+                <p id="login-feedback" class="hidden text-xs text-center text-red-600 font-medium"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN CONSOLE -->
+    <div id="dashboard-container" class="hidden">
+        <!-- Navigation bar -->
+        <nav class="bg-slateTeal text-white py-4 px-6 sm:px-12 flex justify-between items-center shadow-md">
+            <div class="flex items-center space-x-3">
+                <span class="font-serif font-bold text-lg text-warmOchre">चायुग Administration</span>
+            </div>
+            <button id="logout-btn" class="bg-white/10 hover:bg-white/20 px-4 py-2 rounded text-xs uppercase tracking-wider font-semibold transition">
+                Logout <i class="fa-solid fa-sign-out-alt ml-1"></i>
+            </button>
+        </nav>
+
+        <!-- Main Workspace -->
+        <main class="max-w-7xl mx-auto p-6 sm:p-12 space-y-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h2 class="font-serif text-3xl font-bold text-slateTeal">Incoming Table Requests</h2>
+                    <p class="text-xs text-gray-500 mt-1">Review, delete or clear table list records in real-time</p>
+                </div>
+                <div class="flex gap-3">
+                    <button id="refresh-btn" class="border border-warmOchre text-warmOchre hover:bg-warmOchre hover:text-white px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-semibold transition">
+                        <i class="fa-solid fa-rotate mr-1"></i> Sync Listings
+                    </button>
+                    <button id="clear-all-btn" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-semibold transition shadow shadow-red-600/10">
+                        <i class="fa-solid fa-trash-can mr-1"></i> Clear All History
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table View Container -->
+            <div class="bg-white rounded-2xl border border-warmOchre/20 shadow-lg overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slateTeal text-white text-[11px] uppercase tracking-wider font-semibold">
+                                <th class="p-4">Customer</th>
+                                <th class="p-4">Contact</th>
+                                <th class="p-4">Guests</th>
+                                <th class="p-4">Desired Time</th>
+                                <th class="p-4">Notes</th>
+                                <th class="p-4 text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookings-table-body" class="divide-y divide-gray-100 text-xs text-gray-600">
+                            <!-- Dynamic Content Injected here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="no-bookings" class="hidden text-center py-16 text-gray-400 space-y-2">
+                    <i class="fa-solid fa-receipt text-4xl text-gray-300"></i>
+                    <p class="font-medium">No reservations active on current stream.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        let adminToken = localStorage.getItem('cha_yug_admin_token');
+
+        const loginContainer = document.getElementById('login-container');
+        const dashboardContainer = document.getElementById('dashboard-container');
+        const loginForm = document.getElementById('login-form');
+        const loginFeedback = document.getElementById('login-feedback');
+        const bookingsTableBody = document.getElementById('bookings-table-body');
+        const noBookingsEl = document.getElementById('no-bookings');
+
+        // Initial setup check
+        if (adminToken) {
+            showDashboard();
+        }
+
+        // Login Submit handler
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const usernameInput = document.getElementById('username').value;
+            const passwordInput = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: usernameInput, password: passwordInput })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    adminToken = data.token;
+                    localStorage.setItem('cha_yug_admin_token', adminToken);
+                    showDashboard();
+                } else {
+                    loginFeedback.textContent = data.message;
+                    loginFeedback.classList.remove('hidden');
+                }
+            } catch (error) {
+                loginFeedback.textContent = "Server access lost. Try again later.";
+                loginFeedback.classList.remove('hidden');
+            }
+        });
+
+        // Switch Screen States
+        function showDashboard() {
+            loginContainer.classList.add('hidden');
+            dashboardContainer.classList.remove('hidden');
+            fetchReservations();
+        }
+
+        function showLogin() {
+            localStorage.removeItem('cha_yug_admin_token');
+            adminToken = null;
+            dashboardContainer.classList.add('hidden');
+            loginContainer.classList.remove('hidden');
+            loginForm.reset();
+        }
+
+        // Fetch Reservations list from backend API
+        async function fetchReservations() {
+            try {
+                const response = await fetch('/api/admin/reservations', {
+                    headers: { 'Authorization': `Bearer ${adminToken}` }
+                });
+
+                if (response.status === 401) {
+                    showLogin();
+                    return;
+                }
+
+                const data = await response.json();
+                renderTable(data.data);
+            } catch (error) {
+                alert("Error synchronizing active reservations.");
+            }
+        }
+
+        // Render Table list DOM
+        function renderTable(bookings) {
+            bookingsTableBody.innerHTML = '';
+            
+            if (!bookings || bookings.length === 0) {
+                noBookingsEl.classList.remove('hidden');
+                return;
+            }
+            noBookingsEl.classList.add('hidden');
+
+            bookings.forEach(book => {
+                const row = document.createElement('tr');
+                row.className = "hover:bg-bohoCream/50 transition";
+                row.innerHTML = `
+                    <td class="p-4 font-semibold text-slateTeal">${book.name}</td>
+                    <td class="p-4">${book.phone}</td>
+                    <td class="p-4">
+                        <span class="bg-slateTeal/10 text-slateTeal px-2.5 py-1 rounded font-bold">${book.guests} Pax</span>
+                    </td>
+                    <td class="p-4 font-medium">
+                        <div class="text-slateTeal">${book.date}</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">${book.time}</div>
+                    </td>
+                    <td class="p-4 text-gray-400 italic max-w-xs truncate" title="${book.notes}">${book.notes}</td>
+                    <td class="p-4 text-right">
+                        <button onclick="deleteBooking(${book.id})" class="text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100 p-2 rounded-lg transition" title="Clear / Delete Order">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </td>
+                `;
+                bookingsTableBody.appendChild(row);
+            });
+        }
+
+        // Delete single order request
+        async function deleteBooking(id) {
+            if (!confirm("Are you sure you want to clear this booking request?")) return;
+
+            try {
+                const response = await fetch(`/api/admin/reservations/${id}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${adminToken}` }
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    fetchReservations();
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                alert("Fail to contact backend action endpoint.");
+            }
+        }
+
+        // Clear All list requests
+        document.getElementById('clear-all-btn').addEventListener('click', async () => {
+            if (!confirm("Caution: This will permanently wipe all booking requests currently stored. Proceed?")) return;
+
+            try {
+                const response = await fetch('/api/admin/reservations-clear', {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${adminToken}` }
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    fetchReservations();
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                alert("Error sending bulk-wipe action to server.");
+            }
+        });
+
+        // Other handlers
+        document.getElementById('refresh-btn').addEventListener('click', fetchReservations);
+        document.getElementById('logout-btn').addEventListener('click', showLogin);
+    </script>
+</body>
+</html>

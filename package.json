@@ -1,0 +1,12 @@
+{
+  "name": "chayug-bistro",
+  "version": "1.0.0",
+  "description": "Bistro Website for Cha Yug",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
